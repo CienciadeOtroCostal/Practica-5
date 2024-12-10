@@ -16,42 +16,25 @@ En esta práctica analizo las características de la memoria caché de mi pórta
 Queremos empezar viendo la información que nos da la orden `lscpu` para así tener una primera aproximación al problema. Este fue el resultado:
 ```console
 pablodm@conway:~$ lscpu
-Architecture:
- x86_64
-CPU op-mode(s):
- 32-bit, 64-bit
-Address sizes:
- 46 bits physical, 48 bits virtual
-Byte Order:
- Little Endian
-CPU(s):
- 20
-On-line CPU(s) list:
- 0-19
-Vendor ID:
- GenuineIntel
-Model name:
- 13th Gen Intel(R) Core(TM) i9-13900H
-CPU family:
- 6
-Model:
- 186
-Thread(s) per core:
- 2
-Core(s) per socket:
- 14
-Socket(s):
- 1
-Stepping:
- 2
-CPU(s) scaling MHz:
- 14%
-CPU max MHz:
- 5400,0000
+Architecture: x86_64
+CPU op-mode(s): 32-bit, 64-bit
+Address sizes: 46 bits physical, 48 bits virtual
+Byte Order: Little Endian
+CPU(s): 20
+On-line CPU(s) list: 0-19
+Vendor ID: GenuineIntel
+Model name: 13th Gen Intel(R) Core(TM) i9-13900H
+CPU family: 6
+Model: 186
+Thread(s) per core: 2
+Core(s) per socket: 14
+Socket(s): 1
+Stepping: 2
+CPU(s) scaling MHz: 14%
+CPU max MHz: 5400,0000
 CPU min MHz:
  400,0000
-BogoMIPS:
- 5990,40
+BogoMIPS: 5990,40
 Flags:
  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopolog
 y nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdran
@@ -62,46 +45,27 @@ Virtualisation features:
 Virtualisation:
  VT-x
 Caches (sum of all):
-L1d:
- 544 KiB (14 instances)
-L1i:
- 704 KiB (14 instances)
-L2:
- 11,5 MiB (8 instances)
-L3:
- 24 MiB (1 instance)
+L1d: 544 KiB (14 instances)
+L1i: 704 KiB (14 instances)
+L2: 11,5 MiB (8 instances)
+L3: 24 MiB (1 instance)
 NUMA:
-NUMA node(s):
- 1
-NUMA node0 CPU(s):
- 0-19
+NUMA node(s): 1
+NUMA node0 CPU(s): 0-19
 Vulnerabilities:
-Gather data sampling:
- Not affected
-Itlb multihit:
- Not affected
-L1tf:
- Not affected
-Mds:
- Not affected
-Meltdown:
- Not affected
-Mmio stale data:
- Not affected
+Gather data sampling: Not affected
+Itlb multihit: Not affected
+L1tf: Not affected
+Mds: Not affected
+Meltdown: Not affected
+Mmio stale data: Not affected
 Reg file data sampling: Mitigation; Clear Register File
-Retbleed:
- Not affected
-Spec rstack overflow:
- Not affected
-Spec store bypass:
- Mitigation; Speculative Store Bypass disabled via prctl
-Spectre v1:
- Mitigation; usercopy/swapgs barriers and __user pointer sanitization
-Spectre v2:
- Mitigation; Enhanced / Automatic IBRS; IBPB conditional; RSB filling; PBRSB-eIBRS SW sequence; BHI BHI_DIS_S
-Srbds:
- Not affected
-Tsx async abort:
- Not affected
+Retbleed: Not affected
+Spec rstack overflow: Not affected
+Spec store bypass: Mitigation; Speculative Store Bypass disabled via prctl
+Spectre v1: Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Spectre v2: Mitigation; Enhanced / Automatic IBRS; IBPB conditional; RSB filling; PBRSB-eIBRS SW sequence; BHI BHI_DIS_S
+Srbds: Not affected
+Tsx async abort: Not affected
 pablodm@conway:~$
 ```
