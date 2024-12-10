@@ -79,8 +79,19 @@ Por lo tanto esta llamada nos permite conocer que nuestro procesador de estudio 
 
 **Paso 2. Tamaño de bloque**
 
-El tamaño de bloque de cahé es la cantidad de datos que se transfieren entre memoria principal y memoria caché en un solo acceso. Por lo que es importante que el tamaño sea equilibrado, ya que si es demasiado pequeño se realizarán muchos accesos a memoria principal (aumentando así la latencia); pero si es demasiado grande corremos el riesgo de desperdiciar el costoso espacio de caché con información innecesaria. Para averiguar cuál es ése `punto de equilibrio`en nuestro procesador hemos eleaborado el programa line.cpp incluido en este repositorio. Este programa evalúa el tiempo usado en su ejeccución, veindo la transferencia de distintos tamaños de bloque. Posteriormente usamos `gnuplot` para generar una gráfica que nos permita visualizar el punto entorno al cual se alcanza la estabilidad.
+El tamaño de bloque de cahé es la cantidad de datos que se transfieren entre memoria principal y memoria caché en un solo acceso. Por lo que es importante que el tamaño sea equilibrado, ya que si es demasiado pequeño se realizarán muchos accesos a memoria principal (aumentando así la latencia); pero si es demasiado grande corremos el riesgo de desperdiciar el costoso espacio de caché con información innecesaria. Para averiguar cuál es ése `punto de equilibrio`en nuestro procesador hemos eleaborado el programa `line.cpp` incluido en este repositorio. Este programa evalúa el tiempo usado en su ejeccución, viendo la transferencia de distintos tamaños de bloque. Posteriormente usamos `gnuplot` para generar una gráfica que nos permita visualizar el punto entorno al cual se alcanza la estabilidad.
 
 <p align="center">
   <img src="Images/line.png" />
+</p>
+
+Como vemos la gráfica se estabiliza a los `64 bytes` lo que indica que este es nuestro tamaño de línea.
+
+**Paso 3. Tamaño memoria caché.**
+
+Estudiamos ahora el tamaño de la memoria caché. Para ello hacemos uso de nuestro programa `size.cpp` incluido en este repositorio. Este programa evalúa el tiempo usado en su ejecución, viendo el acceso al primer elemento de cada línea de caché (de las cuales ya sabemos su tamaño). Posteriormente usamos `gnuplot` para generar una gráfica que nos permite visualizar cómo se llenan las cachés L1, L2 y L3 de manera escalonada.
+
+
+<p align="center">
+  <img src="Images/size.png" />
 </p>
