@@ -69,3 +69,11 @@ Srbds: Not affected
 Tsx async abort: Not affected
 pablodm@conway:~$
 ```
+Por lo tanto esta llamada nos permite conocer que nuestro procesador de estudio es un `Intel Core i9-1900H` que consta de la siguiente memoria caché:
+        - L1d (Datos): 544 KiB (14 instancias) 
+        - L1i (Instrucciones): 704 KiB (14 instancias) 
+        - L2: 11.5 MiB (8 instancias) 
+        - L3: 24 MiB (1 instancia) 
+
+**Paso 2. Tamaño de bloque**
+El tamaño de bloque de cahé es la cantidad de datos que se transfieren entre memoria principal y memoria caché en un solo acceso. Por lo que es importante que el tamaño sea equilibrado, ya que si es demasiado pequeño se realizarán muchos accesos a memoria principal (aumentando así la latencia); pero si es demasiado grande corremos el riesgo de desperdiciar el costoso espacio de caché con información innecesaria. Para averiguar cuál es ése `punto de equilibrio`en nuestro procesador hemos eleaborado el programa line.cpp incluido en este repositorio. Este programa evalúa el tiempo usado en su ejeccución, veindo la transferencia de distintos tamaños de bloque. Posteriormente usamos `gnuplot` para generar una gráfica que nos permita visualizar el punto entorno al cual se alcanza la estabilidad.
